@@ -6,17 +6,19 @@ using UnityEngine;
 public class CameraMove : MonoBehaviour
 {
     public float moveSpeed;
-
-    Transform player;
-
-    private void Awake()
-    {
-        player = FindObjectOfType<PlayerMove>().transform;
-    }
+    [HideInInspector]
+    public Transform player;
 
     private void Update()
     {
-        Vector3 direction = new Vector3(player.position.x, player.position.y, transform.position.z);
-        transform.position = Vector3.Lerp(transform.position, direction, 0.02f);
+        
+    }
+    private void FixedUpdate()
+    {
+        if (player != null)
+        {
+            Vector3 direction = new Vector3(player.position.x, player.position.y, transform.position.z);
+            transform.position = Vector3.Lerp(transform.position, direction, moveSpeed * Time.fixedDeltaTime);
+        }
     }
 }

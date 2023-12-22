@@ -6,17 +6,7 @@ using UnityEngine;
 public class Data : MonoBehaviour
 {
     private static Data instance;
-    public static Data Instance 
-    {
-        get 
-        {
-            if (instance == null) 
-            { 
-                instance = new GameObject("Data").AddComponent<Data>(); 
-            }
-            return instance;
-        }
-    }
+    public static Data Instance { get { if (instance == null) { instance = new GameObject("Data").AddComponent<Data>(); } return instance; } }
     private void Awake()
     {
         if (instance != null)
@@ -26,38 +16,35 @@ public class Data : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+
+        skillDictionary[SkillName.ShotSkill] = LTQ.ListToQueue(shotSkillList);
+        skillDictionary[SkillName.RevolutionSkill] = LTQ.ListToQueue(revolutionSkillList);
+        skillDictionary[SkillName.AreaSkill] = LTQ.ListToQueue(areaSkillList);
+        skillDictionary[SkillName.HealSkill] = LTQ.ListToQueue(healSkillList);
+        poolDictionary[PoolType.Bullet] = bulletPrefab;
+        poolDictionary[PoolType.Planet] = planetPrefab;
+        poolDictionary[PoolType.Area] = areaPrefab;
     }
 
-    public Dictionary<SkillType, Queue<Skill>> skillDictionary = new Dictionary<SkillType, Queue<Skill>>
+    public Player playerPrefab;
+    public Ship[] shipPrefabs;
+
+    public Dictionary<SkillName, Queue<Skill>> skillDictionary = new Dictionary<SkillName, Queue<Skill>>
     {
-        { SkillType.ShotSkill, new Queue<Skill>() },
-        { SkillType.RevolutionSkill, new Queue<Skill>() },
-        { SkillType.AreaSkill, new Queue<Skill>() }
+        { SkillName.ShotSkill, new Queue<Skill>() },
+        { SkillName.RevolutionSkill, new Queue<Skill>() },
+        { SkillName.AreaSkill, new Queue<Skill>() },
+        { SkillName.HealSkill, new Queue<Skill>() }
     };
 
     public List<Skill> shotSkillList = new List<Skill>();
     public List<Skill> revolutionSkillList = new List<Skill>();
     public List<Skill> areaSkillList = new List<Skill>();
+    public List<Skill> healSkillList = new List<Skill>();
 
-    public Dictionary<PoolType, Queue<GameObject>> poolDictionary = new Dictionary<PoolType, Queue<GameObject>>
-    {
-        { PoolType.Bullet, new Queue<GameObject>() },
-        { PoolType.Planet, new Queue<GameObject>() },
-        { PoolType.Area, new Queue<GameObject>() },
-    };
+    public Dictionary<PoolType, GameObject> poolDictionary = new Dictionary<PoolType, GameObject>();
 
-    public List<GameObject> bulletList = new List<GameObject>();
-    public List<GameObject> planetList = new List<GameObject>();
-    public List<GameObject> areaList = new List<GameObject>();
-
-    private void Start()
-    {
-
-        skillDictionary[SkillType.ShotSkill] = LTQ.ListToQueue(shotSkillList);
-        skillDictionary[SkillType.RevolutionSkill] = LTQ.ListToQueue(revolutionSkillList);
-        skillDictionary[SkillType.AreaSkill] = LTQ.ListToQueue(areaSkillList);
-        poolDictionary[PoolType.Bullet] = LTQ.ListToQueue(bulletList);
-        poolDictionary[PoolType.Planet] = LTQ.ListToQueue(planetList);   
-        poolDictionary[PoolType.Area] = LTQ.ListToQueue(areaList);   
-    }
+    public GameObject bulletPrefab;
+    public GameObject planetPrefab;
+    public GameObject areaPrefab;
 }
