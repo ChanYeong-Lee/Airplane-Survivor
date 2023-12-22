@@ -30,13 +30,22 @@ public class PlayerMove : MonoBehaviour
     {
         float y = Input.GetAxisRaw("Vertical");
 
-        rb.AddForce(y * pivot.up * moveSpeed);
+        state = (y >= 0) ? State.forward : State.backward;
 
-        if (rb.velocity.magnitude > 1)
+
+        if (state == State.backward)
         {
-            player.isMoving = true;
+            Vector2 backVelocity = rb.velocity / -(Vector2)transform.up;
+            if (backVelocity.x > 0 && backVelocity.y > 0)
+            {
+                rb.AddForce(y * pivot.up * moveSpeed);
+            }
+        }
+        else
+        {
+            rb.AddForce(y * pivot.up * moveSpeed);
         }
 
-        state = (y >= 0) ? State.forward : State.backward;
+        player.isMoving = rb.velocity.magnitude > 1;
     }
 }

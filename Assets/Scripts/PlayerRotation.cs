@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerRotation : MonoBehaviour
 {
     public Player player;
-   
+    public float rotatingSpeed = 1;
     private void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -13,11 +13,11 @@ public class PlayerRotation : MonoBehaviour
         {
             if (player.move.state == PlayerMove.State.forward) 
             { 
-                transform.Rotate(new Vector3(0, 0, -x / 2));
+                transform.Rotate(new Vector3(0, 0, -x / 3 * rotatingSpeed));
             }
             else 
             { 
-                transform.Rotate(new Vector3(0, 0, x / 2));
+                transform.Rotate(new Vector3(0, 0, x / 3 * rotatingSpeed));
             }
         }
     }

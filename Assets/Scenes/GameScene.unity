@@ -6067,6 +6067,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1573769628}
+  rotatingSpeed: 1
 --- !u!1 &1867487780
 GameObject:
   m_ObjectHideFlags: 0
