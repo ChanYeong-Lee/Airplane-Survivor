@@ -49,4 +49,4 @@ MonoBehaviour:
   maxHP: 100
   moveSpeed: 1
   rotatingSpeed: 1
-  startSkill: 1
+  startSkill: 2

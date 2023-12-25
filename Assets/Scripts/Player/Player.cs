@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
     {
         CurrentHP -= damage;
     }
-
     public void TakeHeal(float amount)
     {
         CurrentHP += amount;
@@ -96,4 +95,5 @@ public class Player : MonoBehaviour
     {
         alive = false;
     }
+
 }

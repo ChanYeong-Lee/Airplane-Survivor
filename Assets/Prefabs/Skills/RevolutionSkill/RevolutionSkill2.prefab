@@ -12,6 +12,18 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: -5043116580540361309, guid: 94841be7a2e633e478799d49d77b9dfa, type: 3}
+      propertyPath: speed
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5043116580540361309, guid: 94841be7a2e633e478799d49d77b9dfa, type: 3}
+      propertyPath: damage
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -5043116580540361309, guid: 94841be7a2e633e478799d49d77b9dfa, type: 3}
+      propertyPath: distance
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -5043116580540361309, guid: 94841be7a2e633e478799d49d77b9dfa, type: 3}
       propertyPath: planetCount
       value: 2
       objectReference: {fileID: 0}

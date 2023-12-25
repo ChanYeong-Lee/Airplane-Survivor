@@ -9,12 +9,16 @@ public class RevolutionSkill : Skill
 
     public int planetCount;
     public float shotRate;
+    public float distance;
+    public float damage;
+    public float speed;
 
     WaitForSeconds shotRateSec;
     private void Awake()
     {
         shotRateSec = new WaitForSeconds(shotRate);
         skillType = SkillType.Active;
+        skillName = SkillName.RevolutionSkill;
     }
 
     private void OnEnable()
@@ -28,9 +32,12 @@ public class RevolutionSkill : Skill
         {
             for (int i = 0; i < planetCount; i++)
             {
-                GameObject planet = PoolManager.Instance.GenerateObject(PoolType.Planet);
-                planet.SetActive(true);
-                planet.GetComponent<Planet>().Shot();
+                Planet planet = PoolManager.Instance.GenerateObject(PoolType.Planet).GetComponent<Planet>();
+                planet.distance = distance;
+                planet.damage = damage;
+                planet.speed = speed;
+                planet.gameObject.SetActive(true);
+                planet.Shot();
                 yield return new WaitForSeconds(0.3f);
             }
             yield return shotRateSec;

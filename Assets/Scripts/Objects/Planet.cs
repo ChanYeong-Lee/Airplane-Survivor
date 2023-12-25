@@ -6,11 +6,11 @@ using UnityEngine;
 public class Planet : MonoBehaviour
 {
     public float hp;
+    [HideInInspector] public float distance;
     [HideInInspector] public float damage;
     [HideInInspector] public float speed;
 
     private Transform pivot;
-    private float distance = 2;
 
     private void Start()
     {
@@ -34,7 +34,7 @@ public class Planet : MonoBehaviour
     private void FixedUpdate()
     {
         transform.Rotate(new Vector3(0, 0, 2 * Time.fixedDeltaTime));
-        angle += Time.fixedDeltaTime;
+        angle += Time.fixedDeltaTime * speed;
         float x = distance * Mathf.Cos(angle);
         float y = distance * Mathf.Sin(angle);
         transform.position = new Vector2(pivot.position.x + x, pivot.position.y + y);

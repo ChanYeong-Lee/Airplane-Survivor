@@ -14,9 +14,10 @@ public class ShotSkill : Skill
     private void Awake()
     {
         skillType = SkillType.Active;
+        skillName = SkillName.ShotSkill;
     }
 
-    private void OnEnable()
+    private void Start()
     {
         pivot = GameManager.Instance.player.rotation.transform;
         StartCoroutine(ShotCoroutine());

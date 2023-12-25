@@ -7,6 +7,7 @@ public abstract class Skill : MonoBehaviour
     public int level;
     public Sprite skillIcon;
     [HideInInspector] public SkillType skillType;
+    [HideInInspector] public SkillName skillName;
 }
 
 public enum SkillName
@@ -14,7 +15,9 @@ public enum SkillName
     ShotSkill,
     RevolutionSkill,
     AreaSkill,
-    HealSkill
+    HealSkill,
+    MoveSpeedSkill,
+    RotatingSpeedSkill,
 }
 
 public enum SkillType

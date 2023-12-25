@@ -16,9 +16,8 @@ public class PlayerMove : MonoBehaviour
 
     // 언젠간 쓸 것들
     //private float maxRPM = 2000;
-    //private float RPMIncres = 250;
-    //private float RPMDecres = 300;
-    //private float Torque = 500;
+    //private float RPMDiff = 400;
+    //private float Torque = 400;
 
     private void Awake()
     {
@@ -30,14 +29,15 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         float y = Input.GetAxisRaw("Vertical");
-
-        if (RPM >= 0 && RPM <= 2000)
+        float maxRPM = 2000 * moveSpeed;
+        float RPMDiff = 400;
+        if (RPM >= 0 && RPM <= maxRPM)
         {
             if (y <= 0) { RPM -= Time.fixedDeltaTime * 500; }
-            RPM += y * Time.fixedDeltaTime * 400;
+            RPM += y * Time.fixedDeltaTime * RPMDiff;
         }
         if (RPM < 0) RPM = 0;
-        if (RPM > 2000) RPM = 2000;
+        if (RPM > maxRPM) RPM = maxRPM;
         Vector2 dir = transform.position + pivot.up * moveSpeed * RPM / 400 * Time.fixedDeltaTime;
         rb.MovePosition(dir);
 

@@ -9,7 +9,8 @@ public enum PoolType
 {
     Bullet,
     Planet,
-    Area
+    Area,
+    Enemy
 }
 
 public class PoolManager : MonoBehaviour
@@ -49,6 +50,7 @@ public class PoolManager : MonoBehaviour
         { PoolType.Bullet, new Queue<GameObject>() },
         { PoolType.Planet, new Queue<GameObject>() },
         { PoolType.Area, new Queue<GameObject>() },
+        { PoolType.Enemy, new Queue<GameObject>() },
     };
 
     public Dictionary<PoolType, Transform> parentDictionary = new Dictionary<PoolType, Transform>();
@@ -72,10 +74,13 @@ public class PoolManager : MonoBehaviour
 
     public void RemoveObject(GameObject obj, PoolType type)
     {
-        Queue<GameObject> poolQueue = poolDictionary[type];
-        obj.transform.parent = parentDictionary[type];
-        obj.SetActive(false);
-        poolQueue.Enqueue(obj);
+        if (obj != null)
+        {
+            Queue<GameObject> poolQueue = poolDictionary[type];
+            obj.transform.parent = parentDictionary[type];
+            obj.SetActive(false);
+            poolQueue.Enqueue(obj);
+        }
     }
 
     public IEnumerator RemoveObject(GameObject obj, PoolType type, float time)

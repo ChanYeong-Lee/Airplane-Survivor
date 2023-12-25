@@ -12,11 +12,13 @@ public class HealSkill : Skill
     private void Awake()
     {
         skillType = SkillType.Active;
+        skillName = SkillName.HealSkill;
     }
 
     private void Start()
     {
         player = GameManager.Instance.player;
+        StartCoroutine(HealCoroutine());
     }
 
     IEnumerator HealCoroutine()

@@ -17,10 +17,12 @@ public class Data : MonoBehaviour
         instance = this;
         DontDestroyOnLoad(gameObject);
 
-        skillDictionary[SkillName.ShotSkill] = LTQ.ListToQueue(shotSkillList);
-        skillDictionary[SkillName.RevolutionSkill] = LTQ.ListToQueue(revolutionSkillList);
-        skillDictionary[SkillName.AreaSkill] = LTQ.ListToQueue(areaSkillList);
-        skillDictionary[SkillName.HealSkill] = LTQ.ListToQueue(healSkillList);
+        skillDictionary[SkillName.ShotSkill] = shotSkillList;
+        skillDictionary[SkillName.RevolutionSkill] = revolutionSkillList;
+        skillDictionary[SkillName.AreaSkill] = areaSkillList;
+        skillDictionary[SkillName.HealSkill] = healSkillList;
+        skillDictionary[SkillName.MoveSpeedSkill] = moveSpeedSkillList;
+        skillDictionary[SkillName.RotatingSpeedSkill] = rotatingSpeedSkillList;
         poolDictionary[PoolType.Bullet] = bulletPrefab;
         poolDictionary[PoolType.Planet] = planetPrefab;
         poolDictionary[PoolType.Area] = areaPrefab;
@@ -28,19 +30,24 @@ public class Data : MonoBehaviour
 
     public Player playerPrefab;
     public Ship[] shipPrefabs;
+    public Enemy[] enemyPrefabs;
 
-    public Dictionary<SkillName, Queue<Skill>> skillDictionary = new Dictionary<SkillName, Queue<Skill>>
+    public Dictionary<SkillName, List<Skill>> skillDictionary = new Dictionary<SkillName, List<Skill>>
     {
-        { SkillName.ShotSkill, new Queue<Skill>() },
-        { SkillName.RevolutionSkill, new Queue<Skill>() },
-        { SkillName.AreaSkill, new Queue<Skill>() },
-        { SkillName.HealSkill, new Queue<Skill>() }
+        { SkillName.ShotSkill, new List<Skill>() },
+        { SkillName.RevolutionSkill, new List<Skill>() },
+        { SkillName.AreaSkill, new List<Skill>() },
+        { SkillName.HealSkill, new List<Skill>() },
+        { SkillName.MoveSpeedSkill, new List<Skill>() },
+        { SkillName.RotatingSpeedSkill, new List<Skill>() }
     };
 
     public List<Skill> shotSkillList = new List<Skill>();
     public List<Skill> revolutionSkillList = new List<Skill>();
     public List<Skill> areaSkillList = new List<Skill>();
     public List<Skill> healSkillList = new List<Skill>();
+    public List<Skill> moveSpeedSkillList = new List<Skill>();
+    public List<Skill> rotatingSpeedSkillList = new List<Skill>();
 
     public Dictionary<PoolType, GameObject> poolDictionary = new Dictionary<PoolType, GameObject>();
 

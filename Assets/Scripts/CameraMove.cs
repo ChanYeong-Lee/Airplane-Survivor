@@ -7,17 +7,14 @@ public class CameraMove : MonoBehaviour
 {
     public float moveSpeed;
     [HideInInspector]
-    public Transform player;
+    public Player player;
 
-    private void Update()
-    {
-        
-    }
     private void FixedUpdate()
     {
         if (player != null)
         {
-            Vector3 direction = new Vector3(player.position.x, player.position.y, transform.position.z);
+            moveSpeed = 5  * player.move.moveSpeed;
+            Vector3 direction = new Vector3(player.transform.position.x, player.transform.position.y, transform.position.z);
             transform.position = Vector3.Lerp(transform.position, direction, moveSpeed * Time.fixedDeltaTime);
         }
     }

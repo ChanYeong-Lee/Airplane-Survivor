@@ -11,7 +11,7 @@ public class PlayerRotation : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         if (player.isMoving)
         {
-            transform.Rotate(new Vector3(0, 0, -x * rotatingSpeed * Time.deltaTime * 40));
+            transform.Rotate(new Vector3(0, 0, -x * rotatingSpeed * Time.deltaTime * 60));
         }
     }
 }
