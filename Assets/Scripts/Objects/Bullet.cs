@@ -21,6 +21,11 @@ public class Bullet : MonoBehaviour
     public void Shot()
     {
         rb.velocity = transform.up * speed;
-        PoolManager.Instance.RemoveObject(gameObject, PoolType.Bullet, 10f);
+        StartCoroutine(DetroySelfCoroutine());
+    }
+    private IEnumerator DetroySelfCoroutine()
+    {
+        yield return new WaitForSeconds(10f);
+        PoolManager.Instance.RemoveObject(gameObject, PoolType.Bullet);
     }
 }

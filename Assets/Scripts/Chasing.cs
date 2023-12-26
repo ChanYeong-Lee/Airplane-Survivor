@@ -21,10 +21,7 @@ public class Chasing : MonoBehaviour
         {
             enemy.rotation.up = Vector2.Lerp(enemy.rotation.up, dir, Time.fixedDeltaTime * rotatingSpeed);
         }
-        if (!enemy.isSprinting)
-        {
             Vector2 dirPos = transform.position + enemy.rotation.up * moveSpeed * Time.fixedDeltaTime;
             enemy.rb.MovePosition(dirPos);
-        }
     }
 }

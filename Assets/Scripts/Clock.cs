@@ -43,6 +43,7 @@ public class Clock : MonoBehaviour
             {
                 count -= 1;
                 seconds++;
+                GameManager.Instance.player.Score++;
                 if (seconds >= 60)
                 {
                     minutes++;

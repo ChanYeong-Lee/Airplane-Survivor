@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   skillIcon: {fileID: 21300000, guid: f12dff56e787a704c8aa5c3d99123632, type: 3}
+  description: "\uC8FC\uC704\uB97C \uB3C4\uB294 \uD22C\uC0AC\uCCB4\uB97C \uC0DD\uC131\uD569\uB2C8\uB2E4."
   skillType: 0
   skillName: 0
   planetPrefab: {fileID: 8894581007405177975, guid: 6e5599886b5d61a46bb98e39d41f3cdd, type: 3}

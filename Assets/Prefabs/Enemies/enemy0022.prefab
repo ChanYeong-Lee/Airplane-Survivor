@@ -9,23 +9,31 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1228168562608558792, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: moveSpeed
-      value: 1.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintRate
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
-      propertyPath: sprintPower
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: sprintPower
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintDuration
-      value: 1
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4852058774580032675, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Name
       value: enemy0022
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: rotatingSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: exp
@@ -33,7 +41,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: maxHP
-      value: 15
+      value: 45
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: damage
@@ -87,5 +95,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}

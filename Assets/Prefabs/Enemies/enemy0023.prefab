@@ -8,12 +8,36 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1228168562608558792, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: moveSpeed
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1228168562608558792, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: rotatingSpeed
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: sprintRate
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: sprintPower
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: sprintDuration
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4852058774580032675, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Name
       value: enemy0023
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: moveSpeed
+      value: 3.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: rotatingSpeed
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: exp
@@ -21,6 +45,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: maxHP
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: damage
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7820094089907640752, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}

@@ -7,11 +7,10 @@ public class PauseOption : MonoBehaviour
 {
     public Button resumeButton;
     public Button exitButton;
-
-
     private void Awake()
     {
-        
+        resumeButton.onClick.AddListener(Resume);
+        exitButton.onClick.AddListener(Exit);
     }
 
     private void OnEnable()

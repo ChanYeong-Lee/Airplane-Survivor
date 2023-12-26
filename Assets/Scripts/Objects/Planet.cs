@@ -18,7 +18,12 @@ public class Planet : MonoBehaviour
 
     public void Shot()
     {
-        PoolManager.Instance.RemoveObject(gameObject, PoolType.Planet, 10f);
+        StartCoroutine(DestroySelfCoroutine());
+    }
+    private IEnumerator DestroySelfCoroutine()
+    {
+        yield return new WaitForSeconds(10f);
+        PoolManager.Instance.RemoveObject(gameObject, PoolType.Planet);
     }
 
     private void OnEnable()
@@ -47,7 +52,7 @@ public class Planet : MonoBehaviour
         if (collision.TryGetComponent(out Enemy target))
         {
             target.TakeDamage(this.damage);
-            PoolManager.Instance.RemoveObject(gameObject, PoolType.Planet);
+            //PoolManager.Instance.RemoveObject(gameObject, PoolType.Planet);
         }
     }
 }

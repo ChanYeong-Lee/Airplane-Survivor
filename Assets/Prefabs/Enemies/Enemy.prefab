@@ -273,6 +273,7 @@ GameObject:
   - component: {fileID: 7617610376441984008}
   - component: {fileID: 6516627144932031149}
   - component: {fileID: 3830993312843511821}
+  - component: {fileID: 7765489872527644524}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -313,6 +314,7 @@ MonoBehaviour:
   damage: 0
   maxHP: 0
   rotation: {fileID: 4600664251246781410}
+  chasing: {fileID: 0}
   onHPChange:
     m_PersistentCalls:
       m_Calls: []
@@ -356,6 +358,20 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15
+--- !u!114 &7765489872527644524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6997533719055871787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd0a34af37f1f6d4ba83aaf34f9183ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1
+  rotatingSpeed: 1
 --- !u!1 &7890084254057481166
 GameObject:
   m_ObjectHideFlags: 0

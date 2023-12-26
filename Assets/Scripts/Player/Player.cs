@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
 {
     private void Awake()
     {
-        score = 0;
+        Score = 0;
         killCount = 0;
         alive = true;
         spriteRenderer = rotation.GetComponent<SpriteRenderer>();
@@ -24,13 +24,16 @@ public class Player : MonoBehaviour
         rotation.rotatingSpeed = ship.rotatingSpeed;
         damage = ship.damage;
         MaxHP = ship.maxHP;
+        level = 1;
         maxExp = 50;
-        StartCoroutine(ScoreCoroutine());
     }
 
     public UnityEvent<float> onHPChange;
     public UnityEvent<float> onExpChange;
     public UnityEvent<int> onLevelChange;
+    public UnityEvent<int> onKillChange;
+    public UnityEvent<int> onScoreChange;
+    public UnityEvent onDie;
 
     public PlayerMove move;
     public PlayerRotation rotation;
@@ -65,17 +68,18 @@ public class Player : MonoBehaviour
     private float maxHP;
     public float MaxHP { get { return maxHP; } set { currentHP += value - maxHP; maxHP = value; } }
 
-    private float currentExp;
+    public float currentExp;
     public float CurrentExp
     {
         get { return currentExp; }
         set { currentExp = value; while (currentExp >= maxExp) { currentExp -= maxExp; LevelUp(); } onExpChange?.Invoke(currentExp / maxExp); } 
     }
     public float maxExp;
-    public int score;
-    public int killCount;
+    private int score;
+    public int Score { get { return score; } set { score = value; onScoreChange?.Invoke(score); } }
+    private int killCount;
     public float surviveTime;
-    public int KillCount { get { return killCount; } set { int killAmount = value - killCount; killCount = value; if(killAmount > 0) score += killAmount; } }
+    public int KillCount { get { return killCount; } set { int killAmount = value - killCount; killCount = value; if(killAmount > 0) Score += killAmount; onKillChange?.Invoke(killCount); } }
     public void TakeDamage(float damage)
     {
         if (!isDamaging)
@@ -98,13 +102,14 @@ public class Player : MonoBehaviour
         level++;
         MaxHP += 10;
         damage += 1;
-        maxExp += 50;
+        maxExp += 100;
         onLevelChange?.Invoke(level);
     }
     
     private void Die()
     {
         alive = false;
+        onDie?.Invoke();
     }
 
     private IEnumerator InvinsibleCoroutine()
@@ -114,16 +119,5 @@ public class Player : MonoBehaviour
         isDamaging = false;
     }
 
-    private IEnumerator ScoreCoroutine()
-    {
-        while (true)
-        {
-            yield return new WaitUntil(() => alive);
-            yield return new WaitForSeconds(1f);
-            if (alive)
-            {
-                score++;
-            }
-        }
-    }
+    
 }

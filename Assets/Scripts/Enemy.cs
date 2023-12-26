@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float maxHP;
     private float currentHP;
     public Transform rotation;
+    public Chasing chasing;
 
     [HideInInspector] public UnityEvent<float> onHPChange;
     [HideInInspector] public bool isSprinting;
@@ -32,6 +33,7 @@ public class Enemy : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        chasing = GetComponent<Chasing>();
         onHPChange.AddListener(HPBarUpdate);
     }
     private void OnEnable()

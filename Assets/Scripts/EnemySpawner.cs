@@ -7,29 +7,65 @@ public class EnemySpawner : MonoBehaviour
     private Transform player;
     public float spawnDistance;
     public float marginDistance;
+    public float spawnAmount;
     public float spawnRate;
+    public float curSpawnRate;
 
     private IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.Instance.prepared);
         player = GameManager.Instance.player.transform;
         StartCoroutine(monsterSpawnCoroutine());
+        //StartCoroutine(EliteSpawnCoroutine());
+    }
+    private void Update()
+    {
+        if (spawnRate >= 0.5)
+        {
+            spawnRate -= Time.deltaTime / 60;
+        }
+            spawnAmount = 2 + 2 * Clock.Instance.minutes;
     }
 
     private IEnumerator monsterSpawnCoroutine()
     {
         while (true)
         {
-            Vector2 randomUnitVector = Random.insideUnitCircle;
-            Vector2 randomPos = (Vector2)player.position + randomUnitVector * Random.Range(marginDistance, spawnDistance);
-            int randomIndex = Random.Range(0, Data.Instance.enemyPrefabs.Length);
-            GameObject enemyPrefab = Data.Instance.enemyPrefabs[randomIndex].gameObject;
-            Data.Instance.poolDictionary[PoolType.Enemy] = enemyPrefab;
-            Enemy generatedEnemy = PoolManager.Instance.GenerateObject(PoolType.Enemy).GetComponent<Enemy>();
-            generatedEnemy.transform.position = randomPos;
-            generatedEnemy.rotation.up = -randomUnitVector;
-            generatedEnemy.gameObject.SetActive(true);
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                Vector2 randomUnitVector = Random.insideUnitCircle.normalized;
+                Vector2 randomPos = (Vector2)player.position + randomUnitVector * Random.Range(marginDistance, spawnDistance);
+                int randomIndex = Random.Range(0, Data.Instance.enemyPrefabs.Length);
+                GameObject enemyPrefab = Data.Instance.enemyPrefabs[randomIndex].gameObject;
+                Data.Instance.poolDictionary[PoolType.Enemy] = enemyPrefab;
+                Enemy generatedEnemy = PoolManager.Instance.GenerateObject(PoolType.Enemy).GetComponent<Enemy>();
+                generatedEnemy.transform.position = randomPos;
+                generatedEnemy.rotation.up = -randomUnitVector;
+                generatedEnemy.gameObject.SetActive(true);
+            }
             yield return new WaitForSeconds(spawnRate);
+        }
+    }
+    private IEnumerator EliteSpawnCoroutine()
+    {
+        while (true)
+        {
+            for (int i = 0; i < spawnAmount; i++)
+            {
+                Vector2 randomUnitVector = Random.insideUnitCircle;
+                Vector2 randomPos = (Vector2)player.position + randomUnitVector * Random.Range(marginDistance, spawnDistance);
+                int randomIndex = Random.Range(0, Data.Instance.enemyPrefabs.Length);
+                GameObject enemyPrefab = Data.Instance.enemyPrefabs[randomIndex].gameObject;
+                Data.Instance.poolDictionary[PoolType.Enemy] = enemyPrefab;
+                Enemy generatedEnemy = PoolManager.Instance.GenerateObject(PoolType.Enemy).GetComponent<Enemy>();
+                generatedEnemy.transform.position = randomPos;
+                generatedEnemy.rotation.up = -randomUnitVector;
+                generatedEnemy.maxHP *= 2;
+                generatedEnemy.damage *= 2;
+                generatedEnemy.transform.localScale *= 1.5f;
+                generatedEnemy.gameObject.SetActive(true);
+            }
+            yield return new WaitForSeconds(60f);
         }
     }
 }

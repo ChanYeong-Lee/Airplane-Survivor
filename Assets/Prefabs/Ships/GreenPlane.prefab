@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: moveSpeed
-      value: 1.1
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: startSkill
@@ -36,7 +36,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: rotatingSpeed
-      value: 1.1
+      value: 1.05
       objectReference: {fileID: 0}
     - target: {fileID: 3203399502610732971, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: m_Name

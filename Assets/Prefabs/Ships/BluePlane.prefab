@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: moveSpeed
-      value: 0.8
+      value: 0.9
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: startSkill

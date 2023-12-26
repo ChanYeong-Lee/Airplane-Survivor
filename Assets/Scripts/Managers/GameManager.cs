@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
+        Init();
     }
 
     public void Init()
@@ -45,7 +46,7 @@ public class GameManager : MonoBehaviour
 
     public void SaveData()
     {
-        currentScore = player.score;
+        currentScore = player.Score;
         time = $"{Clock.Instance.minutes} : {Clock.Instance.seconds}";
         if (currentScore > highScore)
         {

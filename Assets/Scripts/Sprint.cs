@@ -26,9 +26,17 @@ public class Sprint : MonoBehaviour
         {
             float gapTime = sprintRate - sprintDuration;
             enemy.isSprinting = true;
-            enemy.rb.AddForce(enemy.rotation.up * sprintPower);
-            yield return new WaitForSeconds(sprintDuration);
+            for (int i = 0; i < sprintDuration / 0.02; i++)
+            {
+                enemy.chasing.moveSpeed += sprintPower * 0.02f / sprintDuration;
+                yield return new WaitForSeconds(0.02f);
+            }
             enemy.isSprinting = false;
+            for (int i = 0; i < gapTime / 0.02; i++)
+            {
+                enemy.chasing.moveSpeed -= sprintPower * 0.02f / gapTime;
+                yield return new WaitForSeconds(0.02f);
+            }
             yield return new WaitForSeconds(gapTime);
         }
     }
