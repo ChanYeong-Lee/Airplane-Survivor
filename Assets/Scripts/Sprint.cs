@@ -14,7 +14,7 @@ public class Sprint : MonoBehaviour
         enemy = GetComponent<Enemy>();
     }
 
-    private void Start()
+    private void OnEnable()
     {
         StartCoroutine(SprintCoroutine());    
     }

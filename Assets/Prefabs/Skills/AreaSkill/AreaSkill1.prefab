@@ -46,5 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   skillIcon: {fileID: 21300000, guid: a10c051a1cb8d4c48ac4cdb757547390, type: 3}
-  areaPrefab: {fileID: 6315200933265637731, guid: 3d453e9902b311543b500d3a9df1482f, type: 3}
+  skillType: 0
+  skillName: 0
   radius: 2
+  DPS: 0.2

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Ship : MonoBehaviour
 {
+    public string shipName;
+    [TextArea] public string description;
     public Sprite shipIcon;
     public float damage;
     public float maxHP;

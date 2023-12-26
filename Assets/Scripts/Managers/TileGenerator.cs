@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.AI;
+using UnityEngine.UIElements;
 
 public class TileGenerator : MonoBehaviour
 {
@@ -26,23 +27,26 @@ public class TileGenerator : MonoBehaviour
         Vector2Int.right
     };
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => GameManager.Instance.prepared);
         player = GameManager.Instance.player.transform;
     }
 
     private void Update()
     {
-        playerCell = PosToCell(player.position);
-        for (int x = playerCell.x - borderDistance; x <= playerCell.x + borderDistance; x++)
+        if (player != null)
         {
-            for (int y = playerCell.y - borderDistance; y <= playerCell.y + borderDistance; y++)
+            playerCell = PosToCell(player.position);
+            for (int x = playerCell.x - borderDistance; x <= playerCell.x + borderDistance; x++)
             {
-                GenerateTile(new Vector2Int(x, y));
+                for (int y = playerCell.y - borderDistance; y <= playerCell.y + borderDistance; y++)
+                {
+                    GenerateTile(new Vector2Int(x, y));
+                }
             }
+            RemoveTile(playerCell);
         }
-        RemoveTile(playerCell);
-        
     }
 
     private Vector2Int PosToCell(Vector2 pos)

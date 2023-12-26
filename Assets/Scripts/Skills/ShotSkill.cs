@@ -27,6 +27,7 @@ public class ShotSkill : Skill
     {
         while (true)
         {
+            float totalDamage = damage * GameManager.Instance.player.damage;
             for (int i = 0; i < bulletCount; i++)
             {
                 float angle = -5 * (bulletCount / 2 - i);
@@ -35,7 +36,7 @@ public class ShotSkill : Skill
                 bullet.transform.position = pivot.position;
                 bullet.transform.rotation = pivot.rotation;
                 bullet.transform.Rotate(shotAngle);
-                bullet.damage = damage;
+                bullet.damage = totalDamage;
                 bullet.speed = speed;
                 bullet.gameObject.SetActive(true);
                 bullet.GetComponent<Bullet>().Shot();

@@ -51,5 +51,5 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4510567015549576375, guid: b94a9f056386ae5419224cd7887bcd5f, type: 3}
   bulletCount: 1
   shotRate: 1
-  damage: 10
-  speed: 25
+  damage: 1
+  speed: 2

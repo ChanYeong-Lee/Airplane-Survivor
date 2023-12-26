@@ -10,8 +10,9 @@ public class SkillManager : MonoBehaviour
 
     [HideInInspector] public Player player;
     public Dictionary<SkillName, Queue<Skill>> skillQueueDictionary = new Dictionary<SkillName, Queue<Skill>>();
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => GameManager.Instance.prepared);
         player = GameManager.Instance.player;
         for (int i = 0; i < Enum.GetValues(typeof(SkillName)).Length; i++)
         {
@@ -48,7 +49,7 @@ public class SkillManager : MonoBehaviour
 
     public void LevelUpTest()
     {
-        LevelUp(SkillName.RevolutionSkill);
-        LevelUp(SkillName.RotatingSpeedSkill);
+        LevelUp(SkillName.AreaSkill);
+        LevelUp(SkillName.MoveSpeedSkill);
     }
 }

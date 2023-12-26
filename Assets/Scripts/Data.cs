@@ -23,6 +23,7 @@ public class Data : MonoBehaviour
         skillDictionary[SkillName.HealSkill] = healSkillList;
         skillDictionary[SkillName.MoveSpeedSkill] = moveSpeedSkillList;
         skillDictionary[SkillName.RotatingSpeedSkill] = rotatingSpeedSkillList;
+        skillDictionary[SkillName.DamageSkill] = damageSkillList;
         poolDictionary[PoolType.Bullet] = bulletPrefab;
         poolDictionary[PoolType.Planet] = planetPrefab;
         poolDictionary[PoolType.Area] = areaPrefab;
@@ -32,15 +33,7 @@ public class Data : MonoBehaviour
     public Ship[] shipPrefabs;
     public Enemy[] enemyPrefabs;
 
-    public Dictionary<SkillName, List<Skill>> skillDictionary = new Dictionary<SkillName, List<Skill>>
-    {
-        { SkillName.ShotSkill, new List<Skill>() },
-        { SkillName.RevolutionSkill, new List<Skill>() },
-        { SkillName.AreaSkill, new List<Skill>() },
-        { SkillName.HealSkill, new List<Skill>() },
-        { SkillName.MoveSpeedSkill, new List<Skill>() },
-        { SkillName.RotatingSpeedSkill, new List<Skill>() }
-    };
+    public Dictionary<SkillName, List<Skill>> skillDictionary = new Dictionary<SkillName, List<Skill>>();
 
     public List<Skill> shotSkillList = new List<Skill>();
     public List<Skill> revolutionSkillList = new List<Skill>();
@@ -48,6 +41,7 @@ public class Data : MonoBehaviour
     public List<Skill> healSkillList = new List<Skill>();
     public List<Skill> moveSpeedSkillList = new List<Skill>();
     public List<Skill> rotatingSpeedSkillList = new List<Skill>();
+    public List<Skill> damageSkillList = new List<Skill>();
 
     public Dictionary<PoolType, GameObject> poolDictionary = new Dictionary<PoolType, GameObject>();
 

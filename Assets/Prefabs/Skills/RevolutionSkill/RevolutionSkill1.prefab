@@ -52,5 +52,5 @@ MonoBehaviour:
   planetCount: 1
   shotRate: 2
   distance: 2
-  damage: 8
+  damage: 0.8
   speed: 1

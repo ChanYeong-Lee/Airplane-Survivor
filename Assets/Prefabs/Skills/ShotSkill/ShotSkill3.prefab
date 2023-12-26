@@ -60,12 +60,16 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5958172772368043891, guid: ca569b9a99eb3de47b6c8370cc4c55a1, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5958172772368043891, guid: ca569b9a99eb3de47b6c8370cc4c55a1, type: 3}
       propertyPath: damage
-      value: 20
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5958172772368043891, guid: ca569b9a99eb3de47b6c8370cc4c55a1, type: 3}
       propertyPath: shotRate
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5958172772368043891, guid: ca569b9a99eb3de47b6c8370cc4c55a1, type: 3}
       propertyPath: bulletCount

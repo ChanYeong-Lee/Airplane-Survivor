@@ -18,6 +18,7 @@ public enum SkillName
     HealSkill,
     MoveSpeedSkill,
     RotatingSpeedSkill,
+    DamageSkill
 }
 
 public enum SkillType

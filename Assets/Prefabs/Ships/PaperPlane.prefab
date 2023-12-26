@@ -44,9 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7bbd6d406186a77469e4b4374676f2b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  shipName: "\uC885\uC774\uBE44\uD589\uAE30"
+  description: "\uC720\uB3C4 \uC2A4\uD0AC\uC744 \uAC00\uC9C0\uACE0 \uC2DC\uC791\uD569\uB2C8\uB2E4.
+    \n\uC774\uB3D9 \uC18D\uB3C4\uC640 \uD68C\uC804\uC18D\uB3C4\uAC00 \uD3C9\uADE0\uC801\uC785\uB2C8\uB2E4.\n\uD3C9\uADE0\uC801\uC778
+    \uCCB4\uB825\uC744 \uAC00\uC9C0\uACE0 \uC788\uC2B5\uB2C8\uB2E4."
   shipIcon: {fileID: 21300000, guid: 191bbc40b19f11d49bcc65cfb7b4cef5, type: 3}
   damage: 10
   maxHP: 100
   moveSpeed: 1
   rotatingSpeed: 1
-  startSkill: 2
+  startSkill: 0

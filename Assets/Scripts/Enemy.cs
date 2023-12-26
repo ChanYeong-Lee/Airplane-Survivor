@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
 {
     public Image hpBar;
 
+    public float damage;
     public float maxHP;
     private float currentHP;
     public Transform rotation;
@@ -40,7 +41,9 @@ public class Enemy : MonoBehaviour
     public float exp;
     private void Die()
     {
-        //
+        GameManager.Instance.player.GainExp(exp);
+        GameManager.Instance.player.KillCount++;
+        PoolManager.Instance.RemoveObject(gameObject, PoolType.Enemy);
     }
 
     private void HPBarUpdate(float hpAmount)
@@ -50,6 +53,14 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHP -= damage;
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.TryGetComponent(out Player target))
+        {
+            target.TakeDamage(damage);
+        }
     }
 }
 

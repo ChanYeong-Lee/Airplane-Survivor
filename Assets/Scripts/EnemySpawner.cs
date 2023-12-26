@@ -9,8 +9,9 @@ public class EnemySpawner : MonoBehaviour
     public float marginDistance;
     public float spawnRate;
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return new WaitUntil(() => GameManager.Instance.prepared);
         player = GameManager.Instance.player.transform;
         StartCoroutine(monsterSpawnCoroutine());
     }

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2727354444971912558}
   - component: {fileID: 7072941872378842601}
   - component: {fileID: 7552316608639830968}
+  - component: {fileID: 862058200671542890}
   m_Layer: 0
   m_Name: Planet
   m_TagString: Untagged
@@ -99,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hp: 10
+  distance: 0
   damage: 10
   speed: 3
 --- !u!50 &7552316608639830968
@@ -122,3 +124,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!58 &862058200671542890
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8894581007405177975}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.125

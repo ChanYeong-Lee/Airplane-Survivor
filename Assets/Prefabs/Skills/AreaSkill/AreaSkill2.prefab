@@ -8,12 +8,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
+      propertyPath: DPS
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: level
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: radius
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
+      propertyPath: damagePerSeconds
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2440490000711682464, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: m_RootOrder

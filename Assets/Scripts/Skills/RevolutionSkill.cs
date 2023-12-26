@@ -30,11 +30,12 @@ public class RevolutionSkill : Skill
     {
         while (true)
         {
+            float totalDamage = damage * GameManager.Instance.player.damage;
             for (int i = 0; i < planetCount; i++)
             {
                 Planet planet = PoolManager.Instance.GenerateObject(PoolType.Planet).GetComponent<Planet>();
                 planet.distance = distance;
-                planet.damage = damage;
+                planet.damage = totalDamage;
                 planet.speed = speed;
                 planet.gameObject.SetActive(true);
                 planet.Shot();

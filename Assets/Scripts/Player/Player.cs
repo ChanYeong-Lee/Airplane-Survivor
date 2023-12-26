@@ -5,11 +5,14 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
     private void Awake()
     {
+        score = 0;
+        killCount = 0;
         alive = true;
         spriteRenderer = rotation.GetComponent<SpriteRenderer>();
     }
@@ -22,6 +25,7 @@ public class Player : MonoBehaviour
         damage = ship.damage;
         MaxHP = ship.maxHP;
         maxExp = 50;
+        StartCoroutine(ScoreCoroutine());
     }
 
     public UnityEvent<float> onHPChange;
@@ -41,7 +45,7 @@ public class Player : MonoBehaviour
     public bool isMoving;
     private bool alive;
     public bool Alive { get { return alive; } }
-
+    private bool isDamaging;
     public int level;
 
     public float damage;
@@ -68,10 +72,17 @@ public class Player : MonoBehaviour
         set { currentExp = value; while (currentExp >= maxExp) { currentExp -= maxExp; LevelUp(); } onExpChange?.Invoke(currentExp / maxExp); } 
     }
     public float maxExp;
-
+    public int score;
+    public int killCount;
+    public float surviveTime;
+    public int KillCount { get { return killCount; } set { int killAmount = value - killCount; killCount = value; if(killAmount > 0) score += killAmount; } }
     public void TakeDamage(float damage)
     {
-        CurrentHP -= damage;
+        if (!isDamaging)
+        {
+            CurrentHP -= damage;
+            StartCoroutine(InvinsibleCoroutine());
+        }
     }
     public void TakeHeal(float amount)
     {
@@ -96,4 +107,23 @@ public class Player : MonoBehaviour
         alive = false;
     }
 
+    private IEnumerator InvinsibleCoroutine()
+    {
+        isDamaging = true;
+        yield return new WaitForSeconds(1f);
+        isDamaging = false;
+    }
+
+    private IEnumerator ScoreCoroutine()
+    {
+        while (true)
+        {
+            yield return new WaitUntil(() => alive);
+            yield return new WaitForSeconds(1f);
+            if (alive)
+            {
+                score++;
+            }
+        }
+    }
 }

@@ -19,6 +19,10 @@ PrefabInstance:
       propertyPath: sprintPower
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: sprintDuration
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4852058774580032675, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Name
       value: enemy0022
@@ -30,6 +34,10 @@ PrefabInstance:
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: maxHP
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: damage
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7820094089907640752, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Sprite

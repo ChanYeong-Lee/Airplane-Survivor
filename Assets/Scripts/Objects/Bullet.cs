@@ -6,7 +6,7 @@ public class Bullet : MonoBehaviour
 {
     [HideInInspector] public float damage;
     [HideInInspector] public float speed;
-    private Rigidbody2D rb;
+    [HideInInspector] public Rigidbody2D rb;
 
     private void Awake()
     {
@@ -21,6 +21,6 @@ public class Bullet : MonoBehaviour
     public void Shot()
     {
         rb.velocity = transform.up * speed;
-        StartCoroutine(PoolManager.Instance.RemoveObject(gameObject, PoolType.Bullet, 2f));
+        PoolManager.Instance.RemoveObject(gameObject, PoolType.Bullet, 10f);
     }
 }
