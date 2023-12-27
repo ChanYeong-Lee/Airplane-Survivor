@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     [HideInInspector] public int currentScore;
     [HideInInspector] public int playerLevel;
     [HideInInspector] public int killCount;
+    [HideInInspector] public float givenDamage = 0;
+    [HideInInspector] public float takenDamage = 0;
     [HideInInspector] public int highScore = 0;
     [HideInInspector] public string time;
   
@@ -63,9 +65,12 @@ public class GameManager : MonoBehaviour
 
     public void ResetData()
     {
+        skillList.Clear();
         currentScore = 0;
         playerLevel = 0;
         killCount = 0;
+        givenDamage = 0;
+        takenDamage = 0;
         time = null;
     }
 

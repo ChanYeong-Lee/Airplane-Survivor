@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance { get; private set; }
     private Transform player;
     public float spawnDistance;
     public float marginDistance;
     public float spawnAmount;
     public float spawnRate;
     public float curSpawnRate;
-
+    public List<Enemy> enemies = new List<Enemy>();
+    private void Awake()
+    {
+        Instance = this;
+    }
     private IEnumerator Start()
     {
         yield return new WaitUntil(() => GameManager.Instance.prepared);
@@ -24,7 +29,7 @@ public class EnemySpawner : MonoBehaviour
         {
             spawnRate -= Time.deltaTime / 120;
         }
-            spawnAmount = 2 + 2 * Clock.Instance.minutes + 2 * Clock.Instance.seconds / 60;
+            spawnAmount = 2 + 6 * Clock.Instance.minutes + 6 * Clock.Instance.seconds / 60;
     }
 
     private IEnumerator monsterSpawnCoroutine()
@@ -33,6 +38,10 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < spawnAmount; i++)
             {
+                if (enemies.Count >= 30)
+                {
+                    break;
+                }
                 Vector2 randomUnitVector = Random.insideUnitCircle.normalized;
                 Vector2 randomPos = (Vector2)player.position + randomUnitVector * Random.Range(marginDistance, spawnDistance);
                 int randomIndex = Random.Range(0, Data.Instance.enemyPrefabs.Length);

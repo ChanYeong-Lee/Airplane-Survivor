@@ -8,13 +8,28 @@ public class Chasing : MonoBehaviour
     private Enemy enemy;
     public float moveSpeed;
     public float rotatingSpeed;
+    private float setMoveSpeed;
+    private float setRotSpeed;
     public enum State { Backward, Forward };
     [HideInInspector] public State state;
 
     private void Awake()
     {
         enemy = GetComponent<Enemy>();
+        setMoveSpeed = moveSpeed;
+        setRotSpeed = rotatingSpeed;
     }
+    public void Init()
+    {
+        moveSpeed = setMoveSpeed;
+        moveSpeed = setRotSpeed;
+    }
+    public void Upgrade(float amount)
+    {
+        setMoveSpeed *= amount;
+        setRotSpeed *= amount;
+    }
+
     private void FixedUpdate()
     {
         Player player = GameManager.Instance.player;
@@ -27,10 +42,15 @@ public class Chasing : MonoBehaviour
                 dir = (Vector2)player.transform.position - (Vector2)transform.position;
                 break;
             case State.Forward:
-                dir = (Vector2)player.transform.position + (Vector2)player.rotation.transform.up * 3 - (Vector2)transform.position;
+                dir = (Vector2)player.transform.position + (Vector2)player.rotation.transform.up - (Vector2)transform.position;
                 break;
             default:
                 break;
+        }
+
+        if (dir.magnitude >= 25)
+        {
+            PoolManager.Instance.RemoveObject(gameObject, PoolType.Enemy);
         }
 
         dir.Normalize();

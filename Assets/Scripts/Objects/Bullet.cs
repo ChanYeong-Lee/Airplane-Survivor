@@ -25,7 +25,7 @@ public class Bullet : MonoBehaviour
     }
     private IEnumerator DetroySelfCoroutine()
     {
-        yield return new WaitForSeconds(10f);
+        yield return new WaitForSeconds(4f);
         PoolManager.Instance.RemoveObject(gameObject, PoolType.Bullet);
     }
 }

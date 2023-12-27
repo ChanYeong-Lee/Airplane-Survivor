@@ -1648,8 +1648,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20, y: -200}
-  m_SizeDelta: {x: 200, y: 180}
+  m_AnchoredPosition: {x: -20, y: -180}
+  m_SizeDelta: {x: 200, y: 210}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &1161705756
 MonoBehaviour:
@@ -1677,7 +1677,11 @@ MonoBehaviour:
 
     2
 
-    20'
+    20
+
+    100
+
+    120'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c37b91f461a7e4419a11e70a114965e, type: 2}
   m_sharedMaterial: {fileID: 8101329227546553201, guid: 4c37b91f461a7e4419a11e70a114965e, type: 2}
@@ -1704,8 +1708,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2250,8 +2254,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -200}
-  m_SizeDelta: {x: 300, y: 180}
+  m_AnchoredPosition: {x: 20, y: -180}
+  m_SizeDelta: {x: 300, y: 210}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1644965326
 MonoBehaviour:
@@ -2274,7 +2278,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\uC0DD\uC874 \uC2DC\uAC04 :\n\uCD5C\uC885 \uC810\uC218 :\n\uB3C4\uB2EC\uD55C
-    \uB808\uBCA8 :\n\uCC98\uCE58\uD55C \uC801 : "
+    \uB808\uBCA8 :\n\uCC98\uCE58\uD55C \uC801 : \n\uAC00\uD55C \uD53C\uD574\uB7C9
+    :\n\uBC1B\uC740 \uD53C\uD574\uB7C9 : "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4c37b91f461a7e4419a11e70a114965e, type: 2}
   m_sharedMaterial: {fileID: 8101329227546553201, guid: 4c37b91f461a7e4419a11e70a114965e, type: 2}
@@ -2301,8 +2306,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 24
+  m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

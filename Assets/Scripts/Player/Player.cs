@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [HideInInspector] public UnityEvent<int> onKillChange;
     [HideInInspector] public UnityEvent<int> onScoreChange;
     [HideInInspector] public UnityEvent onDie;
+    [HideInInspector] public UnityEvent<bool> sprintPrepared;
 
     // Settings
     public PlayerMove move;
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour
     public float CurrentExp
     {
         get { return currentExp; }
-        set { currentExp = value; while (currentExp >= maxExp) { currentExp -= maxExp; LevelUp(); } onExpChange?.Invoke(currentExp / maxExp); } 
+        set { currentExp = value; if (currentExp >= maxExp) { currentExp -= maxExp; LevelUp(); } onExpChange?.Invoke(currentExp / maxExp); } 
     }
 
     [HideInInspector] public float maxExp;
@@ -87,6 +88,7 @@ public class Player : MonoBehaviour
         if (!isDamaging)
         {
             CurrentHP -= damage;
+            GameManager.Instance.takenDamage += damage;
             StartCoroutine(InvinsibleCoroutine());
         }
     }
@@ -98,7 +100,7 @@ public class Player : MonoBehaviour
 
     public void GainExp(float exp)
     {
-        CurrentExp += exp;
+        StartCoroutine(GainEXPCoroutine(exp));
     }
 
     private void LevelUp()
@@ -123,6 +125,12 @@ public class Player : MonoBehaviour
         yield return new WaitForSeconds(1f);
         isDamaging = false;
     }
-
-    
+    private IEnumerator GainEXPCoroutine(float exp)
+    {
+        for (int i = 0; i < 40; i++)
+        {
+            CurrentExp += exp / 40;
+            yield return new WaitForSeconds(0.02f);
+        }
+    }
 }

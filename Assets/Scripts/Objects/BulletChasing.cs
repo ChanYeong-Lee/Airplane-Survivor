@@ -9,11 +9,11 @@ public class BulletChasing : MonoBehaviour
     public float rotatingSpeed;
     private Transform target;
     private bool chasingPrepared;
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (chasingPrepared)
         {
-            if (collision.TryGetComponent<Enemy>(out Enemy target) && this.target == null)
+            if (collision.TryGetComponent<Enemy>(out Enemy target))
             {
                 this.target = target.transform;
             }
@@ -24,6 +24,11 @@ public class BulletChasing : MonoBehaviour
     {
         chasingPrepared = false;
         StartCoroutine(ChasingCoroutine());
+    }
+
+    private void OnDisable()
+    {
+        target = null;
     }
 
     private void FixedUpdate()

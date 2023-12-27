@@ -248,5 +248,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4510567015549576378}
-  moveSpeed: 3
+  moveSpeed: 6
   rotatingSpeed: 10

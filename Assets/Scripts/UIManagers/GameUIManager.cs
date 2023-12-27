@@ -12,6 +12,7 @@ public class GameUIManager : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI killText;
     public TextMeshProUGUI scoreText;
+    public Toggle sprintToggle;
 
     public GameObject PauseOption;
     public GameObject LevelUpPannel;
@@ -25,6 +26,7 @@ public class GameUIManager : MonoBehaviour
         GameManager.Instance.player.onLevelChange.AddListener(LevelUp);
         GameManager.Instance.player.onKillChange.AddListener(KillUp);
         GameManager.Instance.player.onScoreChange.AddListener(ScoreUp);
+        GameManager.Instance.player.sprintPrepared.AddListener((on) => sprintToggle.isOn = on);
         SkillManager.Instance.onSkillChange.AddListener(UpdateSkillList);
         PauseButton.onClick.AddListener(Pause);
     }
@@ -36,17 +38,9 @@ public class GameUIManager : MonoBehaviour
 
     private void UpdateEXPbar(float amount)
     {
-        StartCoroutine(IncreaseEXPBar(amount));
+        expBar.fillAmount = amount;
     }
 
-    IEnumerator IncreaseEXPBar(float amount)
-    {
-        for (int i = 0; i < 25; i++)
-        {
-            expBar.fillAmount = Mathf.Lerp(expBar.fillAmount, amount, 0.02f);
-            yield return new WaitForSeconds(0.02f);
-        }
-    }
     private void LevelUp(int level)
     {
         levelText.text = $"LV{level}";

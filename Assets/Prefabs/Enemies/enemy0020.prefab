@@ -65,7 +65,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7617610376441984008, guid: f37596b5cd904364593a042ff99a636d, type: 3}
       propertyPath: maxHP
-      value: 60
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7617610376441984008, guid: f37596b5cd904364593a042ff99a636d, type: 3}
       propertyPath: damage
@@ -81,7 +81,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7765489872527644524, guid: f37596b5cd904364593a042ff99a636d, type: 3}
       propertyPath: rotatingSpeed
-      value: 1.5
+      value: 1.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37596b5cd904364593a042ff99a636d, type: 3}

@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
 
     public float damage;
     public float maxHP;
+    private float setDamage;
+    private float setMaxHP;
     private float currentHP;
     public Transform rotation;
     public Chasing chasing;
@@ -35,11 +37,23 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         chasing = GetComponent<Chasing>();
         onHPChange.AddListener(HPBarUpdate);
+
+        setDamage = damage;
+        setMaxHP = maxHP;
     }
+
     private void OnEnable()
     {
+        EnemySpawner.Instance.enemies.Add(this);
+        Init();
         CurrentHP = maxHP;
     }
+    private void OnDisable()
+    {
+        EnemySpawner.Instance.enemies.Remove(this);
+        Upgrade(1.1f);
+    }
+
     public float exp;
     private void Die()
     {
@@ -55,6 +69,7 @@ public class Enemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         CurrentHP -= damage;
+        GameManager.Instance.givenDamage += damage;
     }
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -63,6 +78,20 @@ public class Enemy : MonoBehaviour
         {
             target.TakeDamage(damage);
         }
+    }
+
+    private void Init()
+    {
+        chasing.Init();
+        damage = setDamage;
+        maxHP = setMaxHP;
+    }
+
+    private void Upgrade(float amount)
+    {
+        chasing.Upgrade(amount);
+        setDamage *= amount;
+        setMaxHP *= amount;
     }
 }
 

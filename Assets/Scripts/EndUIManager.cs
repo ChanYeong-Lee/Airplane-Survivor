@@ -22,7 +22,7 @@ public class EndUIManager : MonoBehaviour
     private void Restart()
     {
         GameManager.Instance.ResetData();
-        SceneLoader.Instance.LoadScene("StartScene");
+        SceneLoader.Instance.LoadScene("GameScene");
     }
 
 }

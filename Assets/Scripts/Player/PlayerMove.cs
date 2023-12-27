@@ -10,8 +10,7 @@ public class PlayerMove : MonoBehaviour
     Player player;
     private Rigidbody2D rb;
     private Transform pivot;
-
-
+    public bool sprintPrepared = true;
     private float RPM;
 
     // 언젠간 쓸 것들
@@ -28,6 +27,13 @@ public class PlayerMove : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (sprintPrepared)
+            {
+                StartCoroutine(Sprint());
+            }
+        }
         float y = Input.GetAxisRaw("Vertical");
         float maxRPM = 2000 * moveSpeed;
         float RPMDiff = 400;
@@ -37,10 +43,22 @@ public class PlayerMove : MonoBehaviour
             RPM += y * Time.fixedDeltaTime * RPMDiff;
         }
         if (RPM < 0) RPM = 0;
-        if (RPM > maxRPM) RPM = maxRPM;
+        if (RPM > maxRPM) RPM = Mathf.Lerp(RPM, maxRPM, Time.fixedDeltaTime);
         Vector2 dir = transform.position + pivot.up * moveSpeed * RPM / 400 * Time.fixedDeltaTime;
         rb.MovePosition(dir);
 
         player.isMoving = Vector2.Distance(transform.position, dir) > 0;
+    }
+    private IEnumerator Sprint()
+    {
+        sprintPrepared = false;
+        player.sprintPrepared?.Invoke(sprintPrepared);
+        float amount = moveSpeed * 0.3f;
+        moveSpeed += amount;
+        yield return new WaitForSeconds(2f);
+        moveSpeed -= amount;
+        yield return new WaitForSeconds(10f);
+        sprintPrepared = true;
+        player.sprintPrepared?.Invoke(sprintPrepared);
     }
 }

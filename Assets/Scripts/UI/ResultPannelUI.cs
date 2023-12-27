@@ -25,7 +25,9 @@ public class ResultPannelUI : MonoBehaviour
         sb.AppendLine(GameManager.Instance.time);
         sb.AppendLine(GameManager.Instance.currentScore.ToString());
         sb.AppendLine(GameManager.Instance.playerLevel.ToString());
-        sb.Append(GameManager.Instance.killCount.ToString());
+        sb.AppendLine(GameManager.Instance.killCount.ToString());
+        sb.AppendLine(((int)GameManager.Instance.givenDamage).ToString());
+        sb.Append(((int)GameManager.Instance.takenDamage).ToString());
         resultText.text = sb.ToString();
 
         StringBuilder skillNames = new StringBuilder();

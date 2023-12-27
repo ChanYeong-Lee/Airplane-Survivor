@@ -77,11 +77,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7765489872527644524, guid: f37596b5cd904364593a042ff99a636d, type: 3}
       propertyPath: moveSpeed
-      value: 4
+      value: 4.3
       objectReference: {fileID: 0}
     - target: {fileID: 7765489872527644524, guid: f37596b5cd904364593a042ff99a636d, type: 3}
       propertyPath: rotatingSpeed
-      value: 2
+      value: 1.9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f37596b5cd904364593a042ff99a636d, type: 3}
@@ -102,6 +102,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a3911cb29ab5c41b642447860f79ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprintRate: 5
+  sprintRate: 4.5
   sprintPower: 7
   sprintDuration: 3
