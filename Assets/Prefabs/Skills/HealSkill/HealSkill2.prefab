@@ -61,7 +61,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8105169892508280305, guid: 17550f7d2143c7b4aadbe5ec688d956f, type: 3}
       propertyPath: amount
-      value: 8
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8105169892508280305, guid: 17550f7d2143c7b4aadbe5ec688d956f, type: 3}
       propertyPath: healRate

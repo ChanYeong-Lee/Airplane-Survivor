@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Chasing : MonoBehaviour
@@ -7,6 +8,8 @@ public class Chasing : MonoBehaviour
     private Enemy enemy;
     public float moveSpeed;
     public float rotatingSpeed;
+    public enum State { Backward, Forward };
+    [HideInInspector] public State state;
 
     private void Awake()
     {
@@ -14,10 +17,24 @@ public class Chasing : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        Vector2 playerPos = GameManager.Instance.player.transform.position;
-        Vector2 dir = playerPos - (Vector2)transform.position;
+        Player player = GameManager.Instance.player;
+        Vector2 dir = new Vector2();
+
+        state = enemy.isSprinting ? State.Forward : State.Backward;
+        switch (state)
+        {
+            case State.Backward:
+                dir = (Vector2)player.transform.position - (Vector2)transform.position;
+                break;
+            case State.Forward:
+                dir = (Vector2)player.transform.position + (Vector2)player.rotation.transform.up * 3 - (Vector2)transform.position;
+                break;
+            default:
+                break;
+        }
+
         dir.Normalize();
-        if ((Vector2)enemy.rotation.up != dir && !enemy.isSprinting)
+        if ((Vector2)enemy.rotation.up != dir /*&& !enemy.isSprinting*/)
         {
             enemy.rotation.up = Vector2.Lerp(enemy.rotation.up, dir, Time.fixedDeltaTime * rotatingSpeed);
         }

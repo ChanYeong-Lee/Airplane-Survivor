@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6551303900495641598, guid: e51cc28fd08a19c4987e0c1788d3e6ba, type: 3}
       propertyPath: amount
-      value: 0.5
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7001908015978169791, guid: e51cc28fd08a19c4987e0c1788d3e6ba, type: 3}
       propertyPath: m_Name

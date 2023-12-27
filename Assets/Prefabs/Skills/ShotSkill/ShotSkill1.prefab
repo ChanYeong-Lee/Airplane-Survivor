@@ -46,11 +46,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   skillIcon: {fileID: 21300000, guid: ff19adf12d76e5f41bcc71a7e38875f9, type: 3}
+  nameInKor: "\uC720\uB3C4 \uC2A4\uD0AC"
   description: "\uC720\uB3C4\uD0C4\uC744 \uBC1C\uC0AC\uD569\uB2C8\uB2E4."
   skillType: 0
   skillName: 0
   bulletPrefab: {fileID: 4510567015549576375, guid: b94a9f056386ae5419224cd7887bcd5f, type: 3}
-  bulletCount: 1
+  bulletCount: 2
   shotRate: 1
   damage: 1
-  speed: 2
+  speed: 3

@@ -6,6 +6,7 @@ public abstract class Skill : MonoBehaviour
 {
     public int level;
     public Sprite skillIcon;
+    public string nameInKor;
     [TextArea] public string description;
     [HideInInspector] public SkillType skillType;
     [HideInInspector] public SkillName skillName;

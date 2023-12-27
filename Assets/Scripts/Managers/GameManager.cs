@@ -12,9 +12,10 @@ public class GameManager : MonoBehaviour
 
     [HideInInspector] public Player player;
     [HideInInspector] public int shipIndex;
-    [HideInInspector] public Dictionary<SkillName, int> skillLevels = new Dictionary<SkillName, int>();
+    [HideInInspector] public List<Skill> skillList = new List<Skill>();
     [HideInInspector] public int currentScore;
-    [HideInInspector] public int surviveTime;
+    [HideInInspector] public int playerLevel;
+    [HideInInspector] public int killCount;
     [HideInInspector] public int highScore = 0;
     [HideInInspector] public string time;
   
@@ -27,7 +28,7 @@ public class GameManager : MonoBehaviour
         }
         instance = this;
         DontDestroyOnLoad(gameObject);
-        Init();
+        Init(); // 나중에 고쳐야함
     }
 
     public void Init()
@@ -47,15 +48,25 @@ public class GameManager : MonoBehaviour
     public void SaveData()
     {
         currentScore = player.Score;
-        time = $"{Clock.Instance.minutes} : {Clock.Instance.seconds}";
-        if (currentScore > highScore)
+        playerLevel = player.level;
+        killCount = player.KillCount;
+        time = $"{Clock.Instance.minutes:D2} : {Clock.Instance.seconds:D2}";
+        if (currentScore >= highScore)
         {
             highScore = currentScore;
         }
         foreach (Skill skill in player.skillList)
         {
-            skillLevels.Add(skill.skillName, skill.level);
+            skillList.Add(skill);
         }
+    }
+
+    public void ResetData()
+    {
+        currentScore = 0;
+        playerLevel = 0;
+        killCount = 0;
+        time = null;
     }
 
     public void GameOver()

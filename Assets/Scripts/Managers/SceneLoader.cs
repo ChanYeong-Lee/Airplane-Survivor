@@ -25,8 +25,12 @@ public class SceneLoader : MonoBehaviour
             return;
         }
         instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded -= OnGameScene;
         SceneManager.sceneLoaded += OnGameScene;
     }
+
     public void LoadScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);

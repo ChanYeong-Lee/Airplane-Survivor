@@ -46,8 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   skillIcon: {fileID: 21300000, guid: 8d669249a1b921a468eb0cf28a48a5e1, type: 3}
+  nameInKor: "\uD68C\uBCF5 \uC2A4\uD0AC"
   description: "\uC8FC\uAE30\uC801\uC73C\uB85C \uCCB4\uB825\uC744 \uD68C\uBCF5\uD569\uB2C8\uB2E4."
   skillType: 0
   skillName: 0
-  amount: 5
-  healRate: 6
+  amount: 10
+  healRate: 5

@@ -28,32 +28,32 @@ public class Player : MonoBehaviour
         maxExp = 50;
     }
 
-    public UnityEvent<float> onHPChange;
-    public UnityEvent<float> onExpChange;
-    public UnityEvent<int> onLevelChange;
-    public UnityEvent<int> onKillChange;
-    public UnityEvent<int> onScoreChange;
-    public UnityEvent onDie;
+    // Events
+    [HideInInspector] public UnityEvent<float> onHPChange;
+    [HideInInspector] public UnityEvent<float> onExpChange;
+    [HideInInspector] public UnityEvent<int> onLevelChange;
+    [HideInInspector] public UnityEvent<int> onKillChange;
+    [HideInInspector] public UnityEvent<int> onScoreChange;
+    [HideInInspector] public UnityEvent onDie;
 
+    // Settings
     public PlayerMove move;
     public PlayerRotation rotation;
-
-    public Ship ship;
-
-    public List<Skill> skillList;
     public Transform skillsParent;
     private SpriteRenderer spriteRenderer;
-
-    [HideInInspector]
-    public bool isMoving;
-    private bool alive;
     public bool Alive { get { return alive; } }
     private bool isDamaging;
-    public int level;
 
-    public float damage;
+    [HideInInspector] public Ship ship;
 
-    private float currentHP;
+    [HideInInspector] public List<Skill> skillList;
+
+    [HideInInspector] public bool isMoving;
+    [HideInInspector] private bool alive;
+    
+    [HideInInspector] public int level;
+    [HideInInspector] public float damage;
+    [HideInInspector] private float currentHP;
     public float CurrentHP 
     { 
         get { return currentHP; }
@@ -68,18 +68,20 @@ public class Player : MonoBehaviour
     private float maxHP;
     public float MaxHP { get { return maxHP; } set { currentHP += value - maxHP; maxHP = value; } }
 
-    public float currentExp;
+    [HideInInspector] public float currentExp;
     public float CurrentExp
     {
         get { return currentExp; }
         set { currentExp = value; while (currentExp >= maxExp) { currentExp -= maxExp; LevelUp(); } onExpChange?.Invoke(currentExp / maxExp); } 
     }
-    public float maxExp;
+
+    [HideInInspector] public float maxExp;
     private int score;
     public int Score { get { return score; } set { score = value; onScoreChange?.Invoke(score); } }
+
     private int killCount;
-    public float surviveTime;
     public int KillCount { get { return killCount; } set { int killAmount = value - killCount; killCount = value; if(killAmount > 0) Score += killAmount; onKillChange?.Invoke(killCount); } }
+
     public void TakeDamage(float damage)
     {
         if (!isDamaging)
@@ -88,10 +90,12 @@ public class Player : MonoBehaviour
             StartCoroutine(InvinsibleCoroutine());
         }
     }
+
     public void TakeHeal(float amount)
     {
         CurrentHP += amount;
     }
+
     public void GainExp(float exp)
     {
         CurrentExp += exp;
@@ -101,6 +105,7 @@ public class Player : MonoBehaviour
     {
         level++;
         MaxHP += 10;
+        CurrentHP += 20;
         damage += 1;
         maxExp += 100;
         onLevelChange?.Invoke(level);

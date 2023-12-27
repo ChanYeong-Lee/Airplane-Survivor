@@ -39,7 +39,7 @@ public class Planet : MonoBehaviour
     private float angle;
     private void FixedUpdate()
     {
-        transform.Rotate(new Vector3(0, 0, 2 * Time.fixedDeltaTime));
+        transform.Rotate(new Vector3(0, 0, 20 * Time.fixedDeltaTime));
         angle += Time.fixedDeltaTime * speed;
         float x = distance * Mathf.Cos(angle);
         float y = distance * Mathf.Sin(angle);

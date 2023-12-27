@@ -148,6 +148,15 @@ MonoBehaviour:
   onLevelChange:
     m_PersistentCalls:
       m_Calls: []
+  onKillChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onScoreChange:
+    m_PersistentCalls:
+      m_Calls: []
+  onDie:
+    m_PersistentCalls:
+      m_Calls: []
   move: {fileID: 7049338676248544811}
   rotation: {fileID: 7049338676467270160}
   ship: {fileID: 0}
@@ -156,7 +165,9 @@ MonoBehaviour:
   isMoving: 0
   level: 0
   damage: 0
+  currentExp: 0
   maxExp: 0
+  surviveTime: 0
 --- !u!114 &7049338676248544811
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -337,6 +348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 7049338676248544809}
   rotatingSpeed: 1
+  RotateLeft: 0
+  RotateRight: 0
 --- !u!1 &8587929449024893169
 GameObject:
   m_ObjectHideFlags: 0

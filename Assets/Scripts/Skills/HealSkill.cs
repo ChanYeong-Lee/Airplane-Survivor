@@ -23,7 +23,10 @@ public class HealSkill : Skill
 
     IEnumerator HealCoroutine()
     {
-        player.TakeHeal(amount);
-        yield return new WaitForSeconds(healRate);
+        while (true)
+        {
+            player.TakeHeal(amount);
+            yield return new WaitForSeconds(healRate);
+        }
     }
 }

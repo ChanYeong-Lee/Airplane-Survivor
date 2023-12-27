@@ -46,6 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   skillIcon: {fileID: 21300000, guid: a0ad0514b9f0bce4fae2cb27160a87be, type: 3}
+  nameInKor: "\uD68C\uC804 \uC18D\uB3C4 \uC99D\uAC00 \uC2A4\uD0AC"
   description: "\uD68C\uC804 \uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9D1\uB2C8\uB2E4."
   skillType: 0
   skillName: 0

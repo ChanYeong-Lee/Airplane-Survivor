@@ -43,7 +43,7 @@ public class GameUIManager : MonoBehaviour
     {
         for (int i = 0; i < 25; i++)
         {
-            expBar.fillAmount += amount / 25;
+            expBar.fillAmount = Mathf.Lerp(expBar.fillAmount, amount, 0.02f);
             yield return new WaitForSeconds(0.02f);
         }
     }

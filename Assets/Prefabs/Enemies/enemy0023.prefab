@@ -17,23 +17,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintRate
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintPower
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintDuration
-      value: 1.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4852058774580032675, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Name
       value: enemy0023
       objectReference: {fileID: 0}
     - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
+      propertyPath: state
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: moveSpeed
-      value: 3.5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: rotatingSpeed

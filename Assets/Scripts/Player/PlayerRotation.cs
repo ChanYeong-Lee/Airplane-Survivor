@@ -6,6 +6,7 @@ public class PlayerRotation : MonoBehaviour
 {
     public Player player;
     public float rotatingSpeed = 1;
+
     private void Update()
     {
         float x = Input.GetAxisRaw("Horizontal");

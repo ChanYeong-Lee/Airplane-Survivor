@@ -14,7 +14,7 @@ public class TimeText : MonoBehaviour
     {
         if (Clock.Instance.Running)
         {
-            text.text = $"{Clock.Instance.minutes} : {Clock.Instance.seconds}";
+            text.text = $"{Clock.Instance.minutes:D2} : {Clock.Instance.seconds:D2}";
         }
     }
 }

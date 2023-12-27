@@ -83,15 +83,4 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    public void RemoveObject(GameObject obj, PoolType type, float time)
-    {
-        StartCoroutine(RemoveDelayCoroutine(obj, type, time));
-    }
-
-    private IEnumerator RemoveDelayCoroutine(GameObject obj, PoolType type, float time)
-    {
-        yield return new WaitForSeconds(time);
-
-        RemoveObject(obj, type);
-    }
 }

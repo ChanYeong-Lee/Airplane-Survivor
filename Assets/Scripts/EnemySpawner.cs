@@ -22,9 +22,9 @@ public class EnemySpawner : MonoBehaviour
     {
         if (spawnRate >= 0.5)
         {
-            spawnRate -= Time.deltaTime / 60;
+            spawnRate -= Time.deltaTime / 120;
         }
-            spawnAmount = 2 + 2 * Clock.Instance.minutes;
+            spawnAmount = 2 + 2 * Clock.Instance.minutes + 2 * Clock.Instance.seconds / 60;
     }
 
     private IEnumerator monsterSpawnCoroutine()
@@ -46,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
             yield return new WaitForSeconds(spawnRate);
         }
     }
+
     private IEnumerator EliteSpawnCoroutine()
     {
         while (true)
