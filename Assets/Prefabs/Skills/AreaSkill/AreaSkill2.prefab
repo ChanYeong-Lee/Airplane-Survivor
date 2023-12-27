@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: DPS
-      value: 0.35
+      value: 0.38
       objectReference: {fileID: 0}
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: level
@@ -17,7 +17,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: radius
-      value: 6.2
+      value: 6.5
       objectReference: {fileID: 0}
     - target: {fileID: 2022089328207157718, guid: d5be2d23bdcdeaa418adb7652724733d, type: 3}
       propertyPath: damagePerSeconds

@@ -108,7 +108,7 @@ public class Player : MonoBehaviour
         level++;
         MaxHP += 10;
         CurrentHP += 20;
-        damage += 1;
+        damage += 1.5f;
         maxExp += 100;
         onLevelChange?.Invoke(level);
     }

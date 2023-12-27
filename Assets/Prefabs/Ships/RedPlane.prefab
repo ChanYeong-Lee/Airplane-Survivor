@@ -8,6 +8,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
+      propertyPath: damage
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: shipIcon
       value: 
       objectReference: {fileID: 21300000, guid: 8155f27d7816ef24c8cc651d0f1cd194, type: 3}
@@ -17,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: moveSpeed
-      value: 0.9
+      value: 0.95
       objectReference: {fileID: 0}
     - target: {fileID: -2524700258103945625, guid: 927879ada8e254b43be0d89a26b689fb, type: 3}
       propertyPath: startSkill

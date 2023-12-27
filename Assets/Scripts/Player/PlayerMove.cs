@@ -39,11 +39,11 @@ public class PlayerMove : MonoBehaviour
         float RPMDiff = 400;
         if (RPM >= 0 && RPM <= maxRPM)
         {
-            if (y <= 0) { RPM -= Time.fixedDeltaTime * 500; }
+            if (y <= 0) { RPM -= Time.fixedDeltaTime * maxRPM / 3; }
             RPM += y * Time.fixedDeltaTime * RPMDiff;
         }
         if (RPM < 0) RPM = 0;
-        if (RPM > maxRPM) RPM = Mathf.Lerp(RPM, maxRPM, Time.fixedDeltaTime);
+        if (RPM >= maxRPM) RPM = Mathf.Lerp(RPM, maxRPM, Time.fixedDeltaTime);
         Vector2 dir = transform.position + pivot.up * moveSpeed * RPM / 400 * Time.fixedDeltaTime;
         rb.MovePosition(dir);
 

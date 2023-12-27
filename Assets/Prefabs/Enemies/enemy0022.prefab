@@ -21,7 +21,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2826267143500295823, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: sprintDuration
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4852058774580032675, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: m_Name
@@ -37,7 +37,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5299977604653845732, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: rotatingSpeed
-      value: 1.9
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5476080481834053504, guid: 8fb801eca59f70e4d86f3fca4f980d0c, type: 3}
       propertyPath: exp

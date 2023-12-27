@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < spawnAmount; i++)
             {
-                if (enemies.Count >= 30)
+                if (enemies.Count >= 40)
                 {
                     break;
                 }
